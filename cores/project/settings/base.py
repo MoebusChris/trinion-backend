@@ -1,6 +1,6 @@
 from typing import List
 
-DEBUG = False
+DEBUG = True  # This should be 'False' in prod mode
 SECRET_KEY = NotImplemented
 
 ALLOWED_HOSTS: List[str] = ['*']
@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # App
     'cores.authentication.apps.AuthenticationConfig',
     'cores.users.apps.UsersConfig',
+    'cores.cards.apps.CardsConfig',
 ]
 
 MIDDLEWARE = [
@@ -101,15 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+AUTH_USER_MODEL = 'users.User'
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
