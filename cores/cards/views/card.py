@@ -3,7 +3,7 @@ from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from cores.general.permissions import IsObjectCreator
+from cores.general.permissions import IsObjectCreator  # type: ignore # noqa: I100
 
 from ..models import Card
 from ..serializers.card import CardReadSerializer, CardWriteSerializer
@@ -25,7 +25,7 @@ class CardViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action in ['create', 'Partial_update', 'update']:
             return CardWriteSerializer
-        
+
         return CardReadSerializer
 
     def update(self, request, *args, **kwargs):
@@ -37,4 +37,3 @@ class CardViewSet(viewsets.ModelViewSet):
         read_serializer = CardReadSerializer(card, context={'request': request})
 
         return Response(read_serializer)
-    

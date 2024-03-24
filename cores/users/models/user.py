@@ -7,4 +7,4 @@ from ..managers.user import UserManager
 class User(AbstractUser):
     avatar = models.ImageField(upload_to='image/', blank=True)
 
-    objects = UserManager
+    objects = UserManager()

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from cores.users.serializers.user import UserReadSerializer, UserWriteSerializer
+from cores.users.serializers.user import UserReadSerializer, UserWriteSerializer  # type: ignore # noqa: I100, F401
 
 from ..models.card import Card
 
@@ -11,6 +11,7 @@ class CardReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = '__all__'
+
 
 class CardWriteSerializer(serializers.ModelSerializer):
 
